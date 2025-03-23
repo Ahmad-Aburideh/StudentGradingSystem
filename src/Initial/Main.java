@@ -20,12 +20,12 @@ public class Main {
             System.out.println("\nLogin Successfully");
             switch (user.getRole()) {
                 case "STUDENT":
-                    System.out.println("Hello, " + user.getUsername() + " You are Student");
+                    System.out.println("Hello " + user.getUsername() + " ,You are Student");
                     StudentPortal.displayStudentGrades(user.getUserId());
                     break;
                     
                 case "INSTRUCTOR":
-                    System.out.println("Hello, " + user.getUsername()+ " You are Instructor");
+                    System.out.println("Hello " + user.getUsername()+ " ,You are Instructor");
                     InstructorPortal.showCourseStudents(user.getUserId());
                     System.out.print("\nDo you want to modify a grade? (Yes or No): ");
                     String option = in.nextLine();
@@ -45,11 +45,11 @@ public class Main {
                     break;
                     
                 case "ADMIN":
-                    System.out.println("Hello, " + user.getUsername() + " You are Admin");
+                    System.out.println("Hello " + user.getUsername() + " ,You are Admin");
                     break;
                     
                 default:
-                    System.out.println("Hello, User " + user.getUsername() + "You are User");
+                    System.out.println("Hello " + user.getUsername() + " ,You are User");
             }
         } 
         else {

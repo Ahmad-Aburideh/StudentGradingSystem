@@ -22,15 +22,15 @@ public class StudentPortal {
              PreparedStatement stmt = conn.prepareStatement(sqlQuery)) {
 
             stmt.setInt(1, studentId);
-            ResultSet rs = stmt.executeQuery();
+            ResultSet result = stmt.executeQuery();
 
             System.out.println("\nYour Courses and Grades:");
 
             boolean found = false;
-            while (rs.next()) {
+            while (result.next()) {
                 found = true;
-                String courseName = rs.getString("Course_Name");
-                double grade = rs.getDouble("Grade");
+                String courseName = result.getString("Course_Name");
+                double grade = result.getDouble("Grade");
 
                 System.out.println("" + courseName + ": " + grade);
             }
@@ -39,8 +39,9 @@ public class StudentPortal {
                 System.out.println("You Are Not Registered In Any Courses.");
             }
 
-        } catch (SQLException e) {
-            System.out.println("Couldn't Fetch Any Grades" + e.getMessage());
+        } 
+        catch (SQLException excp) {
+            System.out.println("Couldn't Fetch Any Grades" + excp.getMessage());
         }
     }
 }

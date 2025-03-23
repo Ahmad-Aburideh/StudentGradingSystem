@@ -46,9 +46,9 @@ public class InstructorPortal {
             if (!hasRows) {
                 System.out.println("You don't have any registerd students.");
             }
-
-        } catch (SQLException e) {
-            System.out.println("Error in displaying course info:" + e.getMessage());
+        } 
+        catch (SQLException excp) {
+            System.out.println("Error in displaying course info:" + excp.getMessage());
         }
     }
 
@@ -61,9 +61,9 @@ public class InstructorPortal {
                 PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
             checkStmt.setInt(1, courseNum);
             checkStmt.setInt(2, instructorId);
-            ResultSet rs = checkStmt.executeQuery();
+            ResultSet result = checkStmt.executeQuery();
 
-            if (!rs.next()) {
+            if (!result.next()) {
                 System.out.println("You are Not Authorized to Modify this course.");
                 return;
             }
